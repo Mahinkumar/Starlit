@@ -27,7 +27,6 @@ endif()
 target_sources(${EXECUTABLE_NAME} 
 PRIVATE 
     src/main.cpp
-    src/iosLaunchScreen.storyboard
 )
 # What is iosLaunchScreen.storyboard? This file describes what Apple's mobile platforms
 # should show the user while the application is starting up. If you don't include one,
