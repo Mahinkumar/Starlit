@@ -20,7 +20,7 @@ SDL_AppResult SDL_AppInit(void** appstate, int argc, char* argv[]) {
     }
     
     // create a window
-    SDL_Window* window = SDL_CreateWindow("Starlit", 720, 480, SDL_WINDOW_RESIZABLE);
+    SDL_Window* window = SDL_CreateWindow("Starlit", 720, 480, SDL_WINDOW_FULLSCREEN);
     if (not window){
         return SDL_Fail();
     }
@@ -56,8 +56,9 @@ SDL_AppResult SDL_AppInit(void** appstate, int argc, char* argv[]) {
 
 SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event* event) {
     auto* app = (AppContext*)appstate;
-    
-    if (event->type == SDL_EVENT_QUIT) {
+
+    //Quits with escape or Enter Key
+    if (event->type == SDL_EVENT_QUIT || event->key.scancode == 41 || event->key.scancode == 40 ) {
         app->app_quit = SDL_APP_SUCCESS;
     }
 
@@ -68,12 +69,13 @@ SDL_AppResult SDL_AppIterate(void *appstate) {
     auto* app = (AppContext*)appstate;
 
     // draw a color
-    auto time = SDL_GetTicks() / 1000.f;
-    auto red = (std::sin(time) + 1) / 2.0 * 255;
-    auto green = (std::sin(time / 2) + 1) / 2.0 * 255;
-    auto blue = (std::sin(time) * 2 + 1) / 2.0 * 255;
+    //auto time = SDL_GetTicks() / 1000.f;
+    //auto red = (std::sin(time) + 1) / 2.0 * 255;
+    //auto green = (std::sin(time / 2) + 1) / 2.0 * 255;
+    //auto blue = (std::sin(time) * 2 + 1) / 2.0 * 255;
     
-    SDL_SetRenderDrawColor(app->renderer, red, green, blue, SDL_ALPHA_OPAQUE);
+    // Renders a pure black Screen
+    SDL_SetRenderDrawColor(app->renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(app->renderer);
     SDL_RenderPresent(app->renderer);
 
