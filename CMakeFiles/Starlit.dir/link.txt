@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Starlit.dir/src/main.cpp.o -o Starlit  -Wl,-rpath,/home/mahinkumar/Github/Starlit: libSDL3.so.0.1.7 
