@@ -20,7 +20,7 @@ cmake -S . -B build
 ./build/Starlit
 ```
 
-# To update SDL
+# To update SDL3
 
 Just update the submodule with
 ```bash
